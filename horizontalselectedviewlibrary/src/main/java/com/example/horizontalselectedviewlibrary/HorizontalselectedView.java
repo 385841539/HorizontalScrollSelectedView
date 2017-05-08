@@ -96,19 +96,14 @@ public class HorizontalselectedView extends View {
     public boolean onTouchEvent(MotionEvent event) {
         Log.e("action", "onTouchEvent: " + event.getAction());
         switch (event.getAction()) {
-
             case MotionEvent.ACTION_DOWN:
-
                 downX = event.getX();//获得点下去的x坐标
-
                 break;
-
             case MotionEvent.ACTION_MOVE://复杂的是移动时的判断
-
                 float scrollX = event.getX();
 
                 if (n != 0 && n != strings.size() - 1)
-                    anOffset = scrollX - downX;//滑动时的偏移量，用于计算每个是数据源文字的坐标值
+                   anOffset = scrollX - downX;//滑动时的偏移量，用于计算每个是数据源文字的坐标值
                 else {
                     anOffset = (float) ((scrollX - downX) / 1.5);//当滑到两端的时候添加一点阻力
                 }
@@ -169,7 +164,6 @@ public class HorizontalselectedView extends View {
             //3从矩形区域中读出文本内容的宽高
             int centerTextWidth = rect.width();
             centerTextHeight = rect.height();
-
             canvas.drawText(strings.get(n), getWidth() / 2 - centerTextWidth / 2 + anOffset, getHeight() / 2 + centerTextHeight / 2, selectedPaint);//绘制被选中文字，注意点是y坐标
 
             for (int i = 0; i < strings.size(); i++) {//遍历strings，把每个地方都绘制出来，
@@ -184,7 +178,6 @@ public class HorizontalselectedView extends View {
                     textPaint.getTextBounds(strings.get(0), 0, strings.get(0).length(), rect);
                     textHeight = rect.height();
                 }
-
 
                 if (i != n)
                     canvas.drawText(strings.get(i), (i - n) * anInt + getWidth() / 2 - textWidth / 2 + anOffset, getHeight() / 2 + textHeight / 2, textPaint);//画出每组文字
@@ -210,7 +203,7 @@ public class HorizontalselectedView extends View {
 
 
     /**
-     * 向左移动
+     * 向左移动一个单元
      */
     public void setAnLeftOffset() {
         if (n < strings.size() - 1) {
@@ -221,7 +214,7 @@ public class HorizontalselectedView extends View {
     }
 
     /**
-     * 向右移动
+     * 向右移动一个单元
      */
     public void setAnRightOffset() {
         if (n > 0) {
