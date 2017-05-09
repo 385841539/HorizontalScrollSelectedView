@@ -4,3 +4,90 @@
 
 # 效果图
 ![效果图](https://github.com/385841539/HorizontalScrollSelectedView/blob/master/horizontalselectedviewlibrary/src/main/res/drawable/xiaoguo2.gif)
+
+
+
+# 博客介绍
+
+简书:[http://www.jianshu.com/p/2974d8ffc3a5](http://www.jianshu.com/p/2974d8ffc3a5)
+
+个人网站:[http://lauzy.me/2017/04/14/Behavior/](http://lauzy.me/2017/04/14/Behavior/)
+
+## Download
+```java
+    allprojects {
+	    repositories {
+		    ...
+		    maven { url 'https://jitpack.io' }
+	    }
+	}
+
+    dependencies {
+      compile 'com.github.385841539:HorizontalScrollSelectedView:c31488ec2f'
+	}
+```
+
+
+# Usage
+
+
+基本使用：
+
+
+```xml
+        <com.example.horizontalselectedviewlibrary.HorizontalselectedView
+            android:id="@+id/hd_main"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="30"
+            app:HorizontalselectedViewSeesize="5"
+            app:HorizontalselectedViewSelectedTextColor="@color/black"
+            app:HorizontalselectedViewSelectedTextSize="60"
+            app:HorizontalselectedViewTextColor="@color/gray"
+            app:HorizontalselectedViewTextSize="40" />
+
+```
+
+
+
+
+
+
+<attr name="HorizontalselectedViewSeesize" format="integer"></attr>
+        <!--被选择文字的大小和颜色-->
+        <attr name="HorizontalselectedViewSelectedTextSize" format="float"></attr>
+        <attr name="HorizontalselectedViewSelectedTextColor" format="color|reference"></attr>
+
+
+        <!--未被被选择文字的大小和颜色-->
+        <attr name="HorizontalselectedViewTextSize" format="float"></attr>
+        <attr name="HorizontalselectedViewTextColor" format="color|reference"></attr>
+
+
+
+自定义(均设有默认值，可不使用)：
+
+
+| 属性         	 		|    参数           	| 说明  					|
+| ------------------------- |------------------ | --------------------- |
+| HorizontalselectedViewSeesize				| int y 			|可见文本数，默认为5|
+| HorizontalselectedViewSelectedTextSize		| float y      	    |被选中文字大小|
+| HorizontalselectedViewSelectedTextColor				|Color color    	|被选中文字颜色|
+| HorizontalselectedViewTextSize			|  float y | 未被选中文字大小|
+| HorizontalselectedViewTextColor|Color color    | 未被选中文字颜色|
+```java
+
+	 hsMain.setData(strings);//设置数据源
+   
+    hsMain.setAnLeftOffset();//向左移动一个单元
+    
+    hsMain.setAnRightOffset();//向右移动一个单元
+    
+    hsMain.getSelectedString();//获得被选中的文本
+    
+    
+```
+
+## Tips
+  很简单的使用方法，不熟悉自定义View的小伙伴可以跟着敲一遍，巩固自定义View。
