@@ -22,7 +22,7 @@ CSDN:[http://blog.csdn.net/iamdingruihaha/article/details/71422269](http://blog.
 	}
 
     dependencies {
-      compile 'com.github.385841539:HorizontalScrollSelectedView:c31488ec2f'
+       compile 'com.github.385841539:HorizontalScrollSelectedView:1.0.0'
 	}
 ```
 
