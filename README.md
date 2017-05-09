@@ -1,5 +1,5 @@
 # HorizontalScrollSelectedView
-横向滚动的，可选择文本的自定义View
+横向滚动的，可以支持大量文本选择的 自定义View ，简单易用 ， 无OOM情况
 
 
 # 效果图
