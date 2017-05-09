@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.horizontalselectedviewlibrary.HorizontalselectedView;
 
@@ -17,12 +18,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private HorizontalselectedView hsMain;
     private Button btMain;
     List<String> strings = new ArrayList<String>();
+    private TextView tvMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
+        initdata();
     }
 
     private void initdata() {
@@ -38,10 +41,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         leftImageView = findViewById(R.id.iv_left);
         rightImageView = findViewById(R.id.iv_right);
         btMain = ((Button) findViewById(R.id.bt_main));
+        tvMain = ((TextView) findViewById(R.id.tv_main));
+
+
         leftImageView.setOnClickListener(this);
         rightImageView.setOnClickListener(this);
         btMain.setOnClickListener(this);
-
     }
 
 
@@ -55,7 +60,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 hsMain.setAnRightOffset();
                 break;
             case R.id.bt_main:
-                initdata();
+
+                tvMain.setText("所选文本：" + hsMain.getSelectedString());
+
                 break;
             default:
                 break;

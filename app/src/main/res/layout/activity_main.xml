@@ -26,10 +26,10 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_marginLeft="2dp"
             android:id="@+id/iv_left"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_marginLeft="2dp"
             android:layout_weight="1"
             android:gravity="center"
             android:text="＜"
@@ -43,7 +43,6 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="30"
             app:HorizontalselectedViewSeesize="5"
-
             app:HorizontalselectedViewSelectedTextColor="@color/black"
             app:HorizontalselectedViewSelectedTextSize="60"
             app:HorizontalselectedViewTextColor="@color/gray"
@@ -51,9 +50,9 @@
 
         <TextView
             android:id="@+id/iv_right"
-            android:layout_marginRight="2dp"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_marginRight="2dp"
             android:layout_weight="1"
             android:gravity="center"
             android:text="＞"
@@ -73,5 +72,16 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="100dp"
         android:text="添加数据源" />
+
+    <TextView
+        android:padding="5dp"
+        android:gravity="center"
+        android:id="@+id/tv_main"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:background="@color/gray" />
 
 </LinearLayout>
