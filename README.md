@@ -49,23 +49,7 @@ CSDN:[http://blog.csdn.net/iamdingruihaha/article/details/71422269](http://blog.
 ```
 
 
-
-
-
-
-<attr name="HorizontalselectedViewSeesize" format="integer"></attr>
-        <!--被选择文字的大小和颜色-->
-        <attr name="HorizontalselectedViewSelectedTextSize" format="float"></attr>
-        <attr name="HorizontalselectedViewSelectedTextColor" format="color|reference"></attr>
-
-
-        <!--未被被选择文字的大小和颜色-->
-        <attr name="HorizontalselectedViewTextSize" format="float"></attr>
-        <attr name="HorizontalselectedViewTextColor" format="color|reference"></attr>
-
-
-
-自定义(均设有默认值，可不使用)：
+自定义属性(均设有默认值，可不使用)：
 
 
 | 属性         	 		|    参数           	| 说明  					|
@@ -75,9 +59,11 @@ CSDN:[http://blog.csdn.net/iamdingruihaha/article/details/71422269](http://blog.
 | HorizontalselectedViewSelectedTextColor				|Color color    	|被选中文字颜色|
 | HorizontalselectedViewTextSize			|  float y | 未被选中文字大小|
 | HorizontalselectedViewTextColor|Color color    | 未被选中文字颜色|
+ 
+用到的动态方法
 ```java
 
-	 hsMain.setData(strings);//设置数据源
+    hsMain.setData(strings);//设置数据源
    
     hsMain.setAnLeftOffset();//向左移动一个单元
     
