@@ -59,9 +59,10 @@ CSDN:[http://blog.csdn.net/iamdingruihaha/article/details/71422269](http://blog.
 | HorizontalselectedViewSelectedTextColor				|Color color    	|被选中文字颜色|
 | HorizontalselectedViewTextSize			|  float y | 未被选中文字大小|
 | HorizontalselectedViewTextColor|Color color | 未被选中文字颜色|
- 
 
- 
+
+
+
 用到的动态方法
 ```java
 
