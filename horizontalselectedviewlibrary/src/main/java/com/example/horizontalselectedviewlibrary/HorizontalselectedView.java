@@ -69,6 +69,9 @@ public class HorizontalselectedView extends View {
         initPaint();//初始化画笔
     }
 
+    /**
+     * 初始化画笔
+     */
     private void initPaint() {
         textPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
         textPaint.setTextSize(textSize);
@@ -79,6 +82,10 @@ public class HorizontalselectedView extends View {
     }
 
 
+    /**
+     * 初始化属性
+     * @param attrs
+     */
     private void initAttrs(AttributeSet attrs) {
         TintTypedArray tta = TintTypedArray.obtainStyledAttributes(getContext(), attrs,
                 R.styleable.HorizontalselectedView);
@@ -88,8 +95,6 @@ public class HorizontalselectedView extends View {
         selectedColor = tta.getColor(R.styleable.HorizontalselectedView_HorizontalselectedViewSelectedTextColor, context.getResources().getColor(android.R.color.black));
         textSize = tta.getFloat(R.styleable.HorizontalselectedView_HorizontalselectedViewTextSize, 40);
         textColor = tta.getColor(R.styleable.HorizontalselectedView_HorizontalselectedViewTextColor, context.getResources().getColor(android.R.color.darker_gray));
-
-
     }
 
     @Override
@@ -103,7 +108,7 @@ public class HorizontalselectedView extends View {
                 float scrollX = event.getX();
 
                 if (n != 0 && n != strings.size() - 1)
-                   anOffset = scrollX - downX;//滑动时的偏移量，用于计算每个是数据源文字的坐标值
+                    anOffset = scrollX - downX;//滑动时的偏移量，用于计算每个是数据源文字的坐标值
                 else {
                     anOffset = (float) ((scrollX - downX) / 1.5);//当滑到两端的时候添加一点阻力
                 }
@@ -191,6 +196,7 @@ public class HorizontalselectedView extends View {
 
     /**
      * 改变中间可见文字的数目
+     *
      * @param seeSizes 可见数
      */
     public void setSeeSize(int seeSizes) {
@@ -225,11 +231,24 @@ public class HorizontalselectedView extends View {
 
     /**
      * 设置个数据源
+     *
      * @param strings 数据源String集合
      */
     public void setData(List<String> strings) {
         this.strings = strings;
         n = strings.size() / 2;
         invalidate();
+    }
+
+    /**
+     * 获得被选中的文本
+     *
+     * @return 被选中的文本
+     */
+    public String getSelectedString() {
+        if (strings.size() != 0) {
+            return strings.get(n);
+        }
+        return null;
     }
 }
