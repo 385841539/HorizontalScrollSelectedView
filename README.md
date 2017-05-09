@@ -8,10 +8,9 @@
 
 
 # 博客介绍
+ 
+CSDN:[http://blog.csdn.net/iamdingruihaha/article/details/71422269](http://blog.csdn.net/iamdingruihaha/article/details/71422269)
 
-简书:[http://www.jianshu.com/p/2974d8ffc3a5](http://www.jianshu.com/p/2974d8ffc3a5)
-
-个人网站:[http://lauzy.me/2017/04/14/Behavior/](http://lauzy.me/2017/04/14/Behavior/)
 
 ## Download
 ```java
