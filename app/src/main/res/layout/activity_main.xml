@@ -71,7 +71,7 @@
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="100dp"
-        android:text="添加数据源" />
+        android:text="点击获得被选文本" />
 
     <TextView
         android:padding="5dp"
