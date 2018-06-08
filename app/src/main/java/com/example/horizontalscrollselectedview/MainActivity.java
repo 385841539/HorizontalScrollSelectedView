@@ -11,7 +11,7 @@ import com.example.horizontalselectedviewlibrary.HorizontalselectedView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, HorizontalselectedView.OnHorizontalViewSlideListener {
 
     private View leftImageView;
     private View rightImageView;
@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btMain;
     List<String> strings = new ArrayList<String>();
     private TextView tvMain;
+    private TextView tvMainCurrent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,11 +43,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         rightImageView = findViewById(R.id.iv_right);
         btMain = ((Button) findViewById(R.id.bt_main));
         tvMain = ((TextView) findViewById(R.id.tv_main));
-
+        tvMainCurrent = ((TextView) findViewById(R.id.tv_main_current));
 
         leftImageView.setOnClickListener(this);
         rightImageView.setOnClickListener(this);
         btMain.setOnClickListener(this);
+        hsMain.setOnSlideListener(this);
     }
 
 
@@ -67,5 +69,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             default:
                 break;
         }
+    }
+
+    @Override
+    public void currentIndex(int index) {
+        tvMainCurrent.setText("所选项指针：" + index);
     }
 }
