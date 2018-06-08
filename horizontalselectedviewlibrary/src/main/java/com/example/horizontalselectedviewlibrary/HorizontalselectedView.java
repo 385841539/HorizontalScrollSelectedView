@@ -50,6 +50,7 @@ public class HorizontalselectedView extends View {
     private int textWidth = 0;
     private int textHeight = 0;
     private int centerTextHeight = 0;
+    private OnHorizontalViewSlideListener horizontalView;
 
 
     public HorizontalselectedView(Context context) {
@@ -120,6 +121,10 @@ public class HorizontalselectedView extends View {
                             anOffset = 0;
                             n = n - 1;
                             downX = scrollX;
+                            // 回调
+                            if (null != horizontalView) {
+                                horizontalView.currentIndex(n);
+                            }
                         }
                     }
                 } else {
@@ -131,6 +136,10 @@ public class HorizontalselectedView extends View {
                             anOffset = 0;
                             n = n + 1;
                             downX = scrollX;
+                            // 回调
+                            if (null != horizontalView) {
+                                horizontalView.currentIndex(n);
+                            }
                         }
                     }
                 }
@@ -162,6 +171,10 @@ public class HorizontalselectedView extends View {
         if (n >= 0 && n <= strings.size() - 1) {//加个保护；防止越界
 
             String s = strings.get(n);//得到被选中的文字
+            // 回调
+            if (null != horizontalView) {
+                horizontalView.currentIndex(n);
+            }
             /**
              * 得到被选中文字 绘制时所需要的宽高
              */
@@ -250,5 +263,20 @@ public class HorizontalselectedView extends View {
             return strings.get(n);
         }
         return null;
+    }
+
+    /**
+     * 设置回调函数
+     * @param horizontalView
+     */
+    public void setOnSlideListener(OnHorizontalViewSlideListener horizontalView) {
+        this.horizontalView = horizontalView;
+    }
+
+    /**
+     * 回调函数
+     */
+    public interface OnHorizontalViewSlideListener {
+        void currentIndex(int index);
     }
 }

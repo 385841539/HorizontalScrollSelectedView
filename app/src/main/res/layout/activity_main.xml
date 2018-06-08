@@ -84,4 +84,15 @@
         android:layout_marginTop="20dp"
         android:background="@color/gray" />
 
+    <TextView
+        android:padding="5dp"
+        android:gravity="center"
+        android:id="@+id/tv_main_current"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:background="@color/gray" />
+
 </LinearLayout>

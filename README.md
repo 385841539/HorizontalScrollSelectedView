@@ -73,7 +73,9 @@ CSDN:[http://blog.csdn.net/iamdingruihaha/article/details/71422269](http://blog.
     hsMain.setAnRightOffset();//向右移动一个单元
     
     hsMain.getSelectedString();//获得被选中的文本
-    
+
+    hsMain.setOnSlideListener();//当左右滑动时，获取当前所选项的指针
+
     
 ```
 
