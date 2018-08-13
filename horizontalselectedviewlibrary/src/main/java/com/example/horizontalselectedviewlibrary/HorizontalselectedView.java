@@ -1,7 +1,6 @@
 package com.example.horizontalselectedviewlibrary;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -12,10 +11,6 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,6 +79,7 @@ public class HorizontalselectedView extends View {
 
     /**
      * 初始化属性
+     *
      * @param attrs
      */
     private void initAttrs(AttributeSet attrs) {
@@ -172,13 +168,26 @@ public class HorizontalselectedView extends View {
             canvas.drawText(strings.get(n), getWidth() / 2 - centerTextWidth / 2 + anOffset, getHeight() / 2 + centerTextHeight / 2, selectedPaint);//绘制被选中文字，注意点是y坐标
 
             for (int i = 0; i < strings.size(); i++) {//遍历strings，把每个地方都绘制出来，
-                if (n > 0 && n < strings.size() - 1) {//这里主要是因为strings数据源的文字长度不一样，为了让被选中两边文字距离中心宽度一样，我们取得左右两个文字长度的平均值
-                    textPaint.getTextBounds(strings.get(n - 1), 0, strings.get(n - 1).length(), rect);
-                    int width1 = rect.width();
-                    textPaint.getTextBounds(strings.get(n + 1), 0, strings.get(n + 1).length(), rect);
-                    int width2 = rect.width();
-                    textWidth = (width1 + width2) / 2;
+                if (n >= 0 && n < strings.size()) {//这里主要是因为strings数据源的文字长度不一样，为了让被选中两边文字距离中心宽度一样，我们取得左右两个文字长度的平均值
+                    int width1 = 0;
+                    if (n > 0) {//防止一共两条数据，锁定第一个出现越界
+                        textPaint.getTextBounds(strings.get(n - 1), 0, strings.get(n - 1).length(), rect);
+                        width1 = rect.width();
+                        textWidth = width1;
+                    }
+
+                    int width2 = 0;
+                    if (n < strings.size() - 1) {//防止一共两条数据，锁定第二个出现越界
+                        textPaint.getTextBounds(strings.get(n + 1), 0, strings.get(n + 1).length(), rect);
+                        width2 = rect.width();
+                        textWidth = width2;
+                    }
+                    if (width1 > 0 && width2 > 0)
+                        textWidth = (width1 + width2) / 2;
+
+
                 }
+
                 if (i == 0) {//得到高，高度是一样的，所以无所谓
                     textPaint.getTextBounds(strings.get(0), 0, strings.get(0).length(), rect);
                     textHeight = rect.height();
@@ -239,6 +248,7 @@ public class HorizontalselectedView extends View {
         n = strings.size() / 2;
         invalidate();
     }
+
 
     /**
      * 获得被选中的文本
